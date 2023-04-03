@@ -12,9 +12,10 @@ namespace HomeworkSalary
             float taxRate = 0;
             float taxAmount = 0;
             float netSalary = 0;
-
+            int grossSalary = 0;
+        
             Console.WriteLine("Please enter the employee's gross salary:");
-            int grossSalary = int.Parse(Console.ReadLine());
+            int salary = int.Parse(Console.ReadLine());
             Console.WriteLine("Please, enter the emloyee's marital status (married, single or widow):");
             string maritalStatus = Console.ReadLine();
             if (maritalStatus != "single")
@@ -53,15 +54,15 @@ namespace HomeworkSalary
             }
 
             // tax calculation
-            if (grossSalary <= 1000)
+            if (salary <= 1000)
             {
                 taxRate = 15;
             }
-            else if (grossSalary < 2000)
+            else if (salary < 2000)
             {
                 taxRate = 20;
             }
-            else if (grossSalary < 3000)
+            else if (salary < 3000)
             {
                 taxRate = 25;
             }
@@ -76,6 +77,7 @@ namespace HomeworkSalary
             }
 
             //final calculations
+            grossSalary = salary + childBonus + familyBonus;
             taxAmount = grossSalary * taxRate/100;
             netSalary = grossSalary - taxAmount;          
 
